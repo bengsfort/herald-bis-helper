@@ -1,0 +1,58 @@
+{
+  "name": "appExpress",
+  "version": "0.0.1",
+  "description": "testing",
+  "main": "index.js",
+  "author": "taylor thompson",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "yarn watch",
+    "build": "rollup --environment NODE_ENV:production -c rollup.config.js",
+    "watch": "rollup -c rollup.config.js -w",
+    "format": "prettier --write 'rollup.*.js', '.{babel,eslint,prettier}rc', 'package.json', 'src/**/*.{js,ts}'",
+    "lint-staged": "lint-staged"
+  },
+  "dependencies": {
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "styled-components": "^4.4.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
+    "@types/styled-components": "^4.4.0",
+    "@typescript-eslint/eslint-plugin": "^2.2.0",
+    "@typescript-eslint/parser": "^2.2.0",
+    "chalk": "^2.4.2",
+    "eslint": "^6.3.0",
+    "husky": "^3.0.9",
+    "lint-staged": "^9.4.2",
+    "nodemon": "^1.19.2",
+    "prettier": "^1.19.0",
+    "rollup": "^1.21.2",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-generate-html-template": "^1.2.0",
+    "rollup-plugin-livereload": "^1.0.1",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-serve": "^1.0.1",
+    "rollup-plugin-server": "^0.7.0",
+    "rollup-plugin-terser": "^5.1.2",
+    "rollup-plugin-typescript2": "^0.24.2",
+    "typescript": "^3.6.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": ["prettier --write", "yarn lint", "git add"],
+    "*.ts": ["prettier --write", "yarn lint", "git add"],
+    "*.json": ["prettier --write", "git add"]
+  }
+}
